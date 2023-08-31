@@ -17,6 +17,7 @@ public class DriverOptionsManager {
 	
 	public ChromeOptions getChromeOptions() {
 		co = new ChromeOptions();
+		co.addArguments("--remote-allow-origins=*");
 		if(prop.getProperty("headless").equalsIgnoreCase("true")) {
 			co.addArguments("--headless");
 		}
