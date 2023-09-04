@@ -8,7 +8,7 @@ public class TestDriver {
 	public static void main(String[] args) throws InterruptedException {
 		
 		
-		String browserName = "chrome";
+		String browserName = "edge";
 		
 		if (browserName.contentEquals("chrome")) {
 			driver = new ChromeDriver();
