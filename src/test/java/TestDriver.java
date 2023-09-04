@@ -20,6 +20,8 @@ public class TestDriver {
 			System.out.println("Provide either Chrome or Edge browser");
 		
 	}
+		System.out.println("Update done by MANICKAM");
+		System.out.println("Update done by BADHRACHALAM");
 		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
