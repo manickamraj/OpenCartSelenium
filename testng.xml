@@ -4,11 +4,11 @@
 <suite name="OpenCartTests"  verbose ="4" >
 	<listeners>
 	  <listener class-name = "com.qa.openCart.listeners.ExtentReportListener" />
-	  <listener class-name = "com.qa.openCart.listeners.TestAllureListener" />
-	  <listener class-name = "com.qa.openCart.listeners.AnnotationTransformer" />
+	  <listener class-name = "com.qa.openCart.listeners.TestAllureListener" /> 
+	  <listener class-name = "com.qa.openCart.listeners.AnnotationTransformer" /> 
 	</listeners>
-	
 <!--  <test name="LoginPage">
+  <parameter name="browser" value="chrome"/>
     <classes>
       <class name="com.qa.openCart.base.LoginPageTest"/>
     </classes>
@@ -17,10 +17,29 @@
     <classes>
       <class name="com.qa.openCart.base.AccountPageTest"/>
     </classes>
-  </test> -->
+  </test> 
  <test name="RegisterPage">
+ <parameter name="browser" value="chrome"/>
    <classes>
       <class name="com.qa.openCart.base.RegisterPageTest"/>
     </classes>
-  </test> 
+  </test> -->
+   <test name="AccountPage-chrome">
+    <parameter name="browser" value=""/>
+    <classes>
+      <class name="com.qa.openCart.base.AccountPageTest"/>
+    </classes>
+   </test>
+   <test name="AccountPage-edge">
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="com.qa.openCart.base.AccountPageTest"/>
+    </classes>
+  </test>
+    <test name="AccountPage-firefox">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.qa.openCart.base.AccountPageTest"/>
+    </classes>
+  </test>
 </suite> <!-- Suite -->

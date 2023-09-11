@@ -4,15 +4,13 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.IInvokedMethod;
-import org.testng.IInvokedMethodListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.qa.openCart.factory.DriverFactory;
 
-public class TestAllureListener  implements ITestListener, IInvokedMethodListener {
+public class TestAllureListener  implements ITestListener {
 	private static String getTestMethodName(ITestResult iTestResult) {
 		return iTestResult.getMethod().getConstructorOrMethod().getName();
 	}
@@ -54,7 +52,7 @@ public class TestAllureListener  implements ITestListener, IInvokedMethodListene
 	@Override
 	public void onTestSuccess(ITestResult iTestResult) {
 		System.out.println("I am in onTestSuccess method " + getTestMethodName(iTestResult) + " succeed");
-		/*Object testClass = iTestResult.getInstance();
+		Object testClass = iTestResult.getInstance();
 		//WebDriver driver = BasePage.getDriver();
 		// Allure ScreenShotRobot and SaveTestLog
 		if (DriverFactory.getDriver() instanceof WebDriver) {
@@ -62,7 +60,7 @@ public class TestAllureListener  implements ITestListener, IInvokedMethodListene
 			saveScreenshotPNG(DriverFactory.getDriver());
 		}
 		// Save a log on allure.
-		saveTextLog(getTestMethodName(iTestResult) + " passed and screenshot taken!");	*/
+		saveTextLog(getTestMethodName(iTestResult) + " passed and screenshot taken!");	
 	}
 
 	@Override
@@ -89,33 +87,4 @@ public class TestAllureListener  implements ITestListener, IInvokedMethodListene
 		System.out.println("Test failed but it is in defined success ratio " + getTestMethodName(iTestResult));
 	}
 	
-	@Override
-	public void afterInvocation(IInvokedMethod method, ITestResult iTestResult) {
-		System.out.println("---" + method.getTestMethod().getMethodName());
-		Object testClass = iTestResult.getInstance();
-		//WebDriver driver = BasePage.getDriver();
-		// Allure ScreenShotRobot and SaveTestLog
-		if (DriverFactory.getDriver() instanceof WebDriver) {
-			System.out.println("Screenshot captured for test case:" + getTestMethodName(iTestResult));
-			saveScreenshotPNG(DriverFactory.getDriver());
-		}
-		// Save a log on allure.
-		saveTextLog(getTestMethodName(iTestResult) + " after method screenshot taken!");	
-		
-	}
-	
-	@Override
-	public void beforeInvocation(IInvokedMethod method, ITestResult iTestResult) {
-		System.out.println("---" + method.getTestMethod().getMethodName());
-		/*Object testClass = iTestResult.getInstance();
-		//WebDriver driver = BasePage.getDriver();
-		// Allure ScreenShotRobot and SaveTestLog
-		if (DriverFactory.getDriver() instanceof WebDriver) {
-			System.out.println("Screenshot captured for test case:" + getTestMethodName(iTestResult));
-			saveScreenshotPNG(DriverFactory.getDriver());
-		}
-		// Save a log on allure.
-		saveTextLog(getTestMethodName(iTestResult) + " before method screenshot taken!");	*/
-		}
-
 }
