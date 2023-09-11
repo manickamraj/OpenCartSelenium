@@ -4,9 +4,8 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.qa.openCart.factory.DriverFactory;
@@ -34,10 +33,14 @@ public class baseTest {
 	
 	protected SoftAssert softAssert;
 		
+	@Parameters({"browser"})
 	@BeforeTest
-	public void setup() throws InterruptedException {
+	public void setup(String browserName) throws InterruptedException {
 		df = new DriverFactory();
 		prop = df.initProp();
+		if(browserName!=null) {
+			prop.setProperty("browser", browserName);
+		}
 		driver = df.initDriver(prop);
 		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 		driver.manage().deleteAllCookies();
@@ -50,7 +53,10 @@ public class baseTest {
 	
 	
 	@AfterTest
-	public void teardown() {
-		driver.quit();
-	}
+	public void teardown() throws InterruptedException {
+		Thread.sleep(2000);
+		if(driver != null){
+		    driver.quit();
+		   }
+	} 
 }

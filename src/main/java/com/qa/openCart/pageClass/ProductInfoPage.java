@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qa.openCart.utilities.ElementUtil;
 
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 
 public class ProductInfoPage {
@@ -85,6 +88,7 @@ public class ProductInfoPage {
 		eleUtil.clearTextField(qtyTextBox);
 		eleUtil.doSendKeys(qtyTextBox, String.valueOf(qty));
 		eleUtil.clickButton(addProductToCart);
+		saveScreenshotPNG(driver);
 		String SuccessMsg = eleUtil.webDriverWaitFindElementOnPage(addToCartSuccessMsg, 5).getText();
 		return (SuccessMsg.substring(0, SuccessMsg.length()-1).replace("\n", ""));
 	}
@@ -93,6 +97,7 @@ public class ProductInfoPage {
 	public String getCartItemsDetails() {
 		eleUtil.webDriverWaitFindElementOnPage(cartItems, 6);
 		eleUtil.doActionMoveToElement(cartItems);
+		saveScreenshotPNG(driver);
 		return eleUtil.getTextFindElement(cartItems);
 	}
 	
@@ -100,6 +105,13 @@ public class ProductInfoPage {
 	public void removeSingleAddedProductFromCart() {
 		eleUtil.doActionClick(cartItems);
 		eleUtil.clickButton(removeCartItems);
+		saveScreenshotPNG(driver);
+	}
+	
+	// Text attachments for Allure
+	@Attachment(value = "Page screenshot", type = "image/png")
+	public byte[] saveScreenshotPNG(WebDriver driver) {
+		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 	}
 	
 }
