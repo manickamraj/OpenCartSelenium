@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
@@ -15,7 +16,7 @@ import io.qameta.allure.Story;
 @Epic("EPIC 02 : Account Page Requirements")
 @Story("Story 02 : Account Page Verification")
 public class AccountPageTest extends baseTest{
-
+	
 	@BeforeClass
 	public void acctPageSetUp() {
 		accountpage=loginpage.userLoginPage();
@@ -72,7 +73,7 @@ public class AccountPageTest extends baseTest{
 		searchpage = accountpage.searchProducts("Macbook");
 		prodinfopage = searchpage.selectSearchProduct("MacBook Pro");
 		Map<String,String> map = prodinfopage.getProductDetails();
-		System.out.println(map);
+		//System.out.println(map);
 		softAssert.assertEquals(map.get("productName"), "MacBook Pro");
 		softAssert.assertEquals(map.get("Brand"), "Apple");
 		softAssert.assertEquals(map.get("Reward Points"), "800");

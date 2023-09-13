@@ -3,6 +3,8 @@ screenshot/
 test-output/
 build/
 reports/
+target/
+logs/
 
 application.log
 ##############################

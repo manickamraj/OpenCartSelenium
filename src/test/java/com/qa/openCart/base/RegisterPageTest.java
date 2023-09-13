@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
@@ -13,6 +14,8 @@ import io.qameta.allure.Story;
 @Epic("EPIC 03 : Registration Page Requirements")
 @Story("Story 01 : User Registration successfull")
 public class RegisterPageTest extends baseTest {
+	
+	private final Logger logger = Logger.getLogger(RegisterPageTest.class);
 	
 	@BeforeClass
 	public void setUpRegisterPage() {
@@ -38,6 +41,7 @@ public class RegisterPageTest extends baseTest {
 		registerpage.selectSubscrice(subscribe);
 		registerpage.selectAgreeCheckBox();
 		String successMsg = registerpage.submitRegisterButton();
+		logger.info(successMsg);
 		Assert.assertEquals(successMsg, "Your Account Has Been Created!");
 		registerpage.logoutUser();
 		registerpage.navigateToRegisterPage();

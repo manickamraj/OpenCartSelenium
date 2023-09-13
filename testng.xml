@@ -41,5 +41,5 @@
     <classes>
       <class name="com.qa.openCart.base.AccountPageTest"/>
     </classes>
-  </test>
+  </test> 
 </suite> <!-- Suite -->
