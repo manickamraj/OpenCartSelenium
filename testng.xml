@@ -17,14 +17,14 @@
     <classes>
       <class name="com.qa.openCart.base.AccountPageTest"/>
     </classes>
-  </test> 
+  </test> -->
  <test name="RegisterPage">
- <parameter name="browser" value="chrome"/>
+ <parameter name="browser" value="firefox"/>
    <classes>
       <class name="com.qa.openCart.base.RegisterPageTest"/>
     </classes>
-  </test> -->
-   <test name="AccountPage-chrome">
+  </test> 
+<!--   <test name="AccountPage-chrome">
     <parameter name="browser" value="chrome"/>
     <classes>
       <class name="com.qa.openCart.base.AccountPageTest"/>
@@ -41,5 +41,5 @@
     <classes>
       <class name="com.qa.openCart.base.AccountPageTest"/>
     </classes>
-  </test> 
+  </test> -->
 </suite> <!-- Suite -->
