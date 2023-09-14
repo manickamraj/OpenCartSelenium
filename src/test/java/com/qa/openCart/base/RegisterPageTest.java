@@ -15,7 +15,9 @@ import io.qameta.allure.Story;
 @Story("Story 01 : User Registration successfull")
 public class RegisterPageTest extends baseTest {
 	
-	private final Logger logger = Logger.getLogger(RegisterPageTest.class);
+	
+	int random = (int) Math.round(Math.random()*1000000);
+	String adder = Integer.toString(random);
 	
 	@BeforeClass
 	public void setUpRegisterPage() {
@@ -34,14 +36,13 @@ public class RegisterPageTest extends baseTest {
 			String password, String subscribe) {
 		registerpage.enterFirstName(firstName);
 		registerpage.enterLastName(lastName);
-		registerpage.enterEmailID(emailID);
+		registerpage.enterEmailID(adder+emailID);
 		registerpage.enterPhoneNum(phoneNum);
 		registerpage.enterPasswordFirst(password);
 		registerpage.confirmPassword(password);
 		registerpage.selectSubscrice(subscribe);
 		registerpage.selectAgreeCheckBox();
 		String successMsg = registerpage.submitRegisterButton();
-		logger.info(successMsg);
 		Assert.assertEquals(successMsg, "Your Account Has Been Created!");
 		registerpage.logoutUser();
 		registerpage.navigateToRegisterPage();

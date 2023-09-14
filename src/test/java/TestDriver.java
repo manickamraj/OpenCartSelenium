@@ -8,25 +8,10 @@ public class TestDriver {
 	public static void main(String[] args) throws InterruptedException {
 		
 		
-		String browserName = "chrome";
-		
-		if (browserName.contentEquals("chrome")) {
-			driver = new ChromeDriver();
-		}
-		else if (browserName.equalsIgnoreCase("edge")) {
-			driver = new EdgeDriver();
-		}
-		else {
-			System.out.println("Provide either Chrome or Edge browser");
-		
-	}
-		System.out.println("Update done by MONIKA");
-		System.out.println("Update done by HARIDHARANI");
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
-		Thread.sleep(2000);
-		driver.quit();
+		int random = (int) Math.round(Math.random()*100000);
+		String adder = Integer.toString(random);
+		System.out.println(random);
+		System.out.println(adder);
 
 }
 }
