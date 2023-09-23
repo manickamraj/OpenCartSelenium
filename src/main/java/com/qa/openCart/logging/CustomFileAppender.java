@@ -10,7 +10,7 @@ public class CustomFileAppender extends FileAppender{
 	@Override
 	public void append(LoggingEvent event) {
 	//String driverFactoryClassName = event.getMDC("DriverFactory").toString();
-	String testClassName = event.getMDC("testClassName").toString();
+	String testClassName = event.getClass().toString();
 	
 	String logsFolderPath = "logs";
 	File logsFolder = new File(logsFolderPath);
